@@ -3,5 +3,3 @@ def set(i : int) -> None:
         if i & (1 << j):
             print(j, end=' ')
     print()
-
-
