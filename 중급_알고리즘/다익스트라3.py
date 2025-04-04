@@ -1,18 +1,18 @@
 import heapq
 
 def dijkstra(start, graph):
-    INF = float('inf')  # 무한대로 초기화
+    INF = float('inf')
     dist = [INF] * len(graph)
-    dist[start] = ____
-    q = [(____, start)]
+    dist[start] = 0
+    q = [(graph, start)]
 
     while q:
-        cost, now = ______(q)
+        cost, now = heapq.heappop(q)
         if dist[now] < cost:
             continue
         for nxt, w in graph[now]:
             if dist[nxt] > cost + w:
-                dist[nxt] = ______
-                ______(q, (dist[nxt], nxt))
+                dist[nxt] = cost = w
+                heapq.heappush(q, (dist[nxt], nxt))
 
     return dist
